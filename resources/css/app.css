@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+
+    --color-bordeaux-50: #fbf3f4;
+    --color-bordeaux-100: #f4e1e4;
+    --color-bordeaux-200: #e7c0c7;
+    --color-bordeaux-500: #a3485a;
+    --color-bordeaux-600: #8c3a4b;
+    --color-bordeaux-700: #6e1f2f;
+    --color-bordeaux-800: #561826;
+    --color-bordeaux-900: #3d111b;
+
+    --color-ivoire: #fbf7f2;
+    --color-beige-100: #f5ede3;
+    --color-beige-200: #f1e4d6;
+    --color-beige-300: #e8d5c4;
+    --color-beige-500: #b89b86;
+    --color-encre: #2e2422;
+    --color-gris-doux: #7a6a63;
+}
+
+@layer base {
+    body { @apply bg-ivoire font-sans text-encre antialiased; }
+    h1, h2, h3 { @apply text-bordeaux-700; }
+    [x-cloak] { display: none; }
+}
+
+@utility titre-page {
+    @apply font-display text-3xl font-semibold text-bordeaux-700 sm:text-4xl;
+}
+
+@utility carte {
+    @apply rounded-2xl border border-beige-300/70 bg-white;
+}
+
+@utility carte-corps {
+    @apply p-5 sm:p-6;
+}
+
+@utility btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-bordeaux-500 focus-visible:ring-offset-2 disabled:opacity-50;
+}
+
+@utility btn-primaire {
+    @apply btn bg-bordeaux-700 text-white hover:bg-bordeaux-800;
+}
+
+@utility btn-secondaire {
+    @apply btn border border-beige-300 bg-white text-bordeaux-700 hover:bg-beige-100;
+}
+
+@utility btn-whatsapp {
+    @apply btn bg-[#1f8f54] text-white hover:bg-[#187344];
+}
+
+@utility btn-danger {
+    @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50;
+}
+
+@utility btn-sm {
+    @apply px-3 py-1.5 text-xs;
+}
+
+@utility label {
+    @apply mb-1.5 block text-sm font-medium text-encre;
+}
+
+@utility champ {
+    @apply block w-full rounded-xl border border-beige-300 bg-white px-3.5 py-2.5 text-sm text-encre placeholder:text-gris-doux/70 focus:border-bordeaux-500 focus:ring-2 focus:ring-bordeaux-100 focus:outline-none;
+}
+
+@utility champ-erreur {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-100;
+}
+
+@utility aide {
+    @apply mt-1 text-xs text-gris-doux;
+}
+
+@utility erreur {
+    @apply mt-1 text-xs font-medium text-red-700;
+}
+
+@utility tableau {
+    @apply w-full text-left text-sm;
+}
+
+@utility onglet {
+    @apply rounded-lg px-3 py-1.5 text-sm font-medium text-gris-doux hover:text-bordeaux-700;
+}
+
+@utility onglet-actif {
+    @apply bg-white text-bordeaux-700 shadow-sm ring-1 ring-beige-300;
+}
+
+@layer components {
+    .tableau thead th { @apply border-b border-beige-300 px-4 py-3 text-xs font-semibold tracking-wide text-gris-doux uppercase; }
+    .tableau tbody td { @apply border-b border-beige-200/70 px-4 py-3.5 align-middle; }
+    .tableau tbody tr:hover { @apply bg-beige-100/40; }
+}
